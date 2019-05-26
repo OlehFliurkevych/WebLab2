@@ -56,8 +56,8 @@ function initList () {
 
 
 function initListEvents () {
-    document.addEventListener('projects_on_executionListDataChanged', function (e) {
-        const dataTable = window.jQuery('#productsonstorage-list').DataTable()
+    document.addEventListener('project_on_executionListDataChanged', function (e) {
+        const dataTable = window.jQuery('#projectsonexecution-list').DataTable()
 
         dataTable.clear()
         dataTable.rows.add(e.detail)

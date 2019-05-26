@@ -2,3 +2,31 @@ extends ../layout.pug
 
 block prepend styles
     link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='project-add-form' name='project-add-form' class='form-inline' action='')
+        input(id='id' name='id' value='' class='form-control' type='hidden')
+        p(class='text-danger' id='error-text')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='title') Title
+            div(class='col-md-9')
+                input(id='title' name='title' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='description') Description
+            div(class='col-md-9')
+                input(id='description' name='description' value='' class='form-control')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(id="form-button" type='submit' class='btn btn-primary') Create project
+        div.list-wrapper
+            table(id='project-list')
+block append scripts
+    script(src='/static/js/models/Project.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/Project.js')
+
+

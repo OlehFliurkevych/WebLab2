@@ -2,3 +2,36 @@ extends ../layout.pug
 
 block prepend styles
     link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='projectsonexecution-add-form' name='projectsonexecution-add-form' class='form-inline' action='')
+        input(id='id' name='id' value='' class='form-control' type='hidden')
+        p(class='text-danger' id='error-text')
+        div(class='form-group')
+            div(class='col-md-3')
+                label(for='project') Project
+            div(class='col-md-9')
+                input(id='project' name='project' value='' class='form-control' autocomplete="off")
+            div(class='col-md-3')
+                label(for='performer') Performer
+            div(class='col-md-9')
+                input(id='performer' name='' value='' class='form-control'  autocomplete="off")
+            div(class='col-md-3')
+                label(for='date_start') Date start
+            div(class='col-md-9')
+                input(id='date_start' name='' type='date' value='' class='form-control'  autocomplete="off")
+            div(class='col-md-3')
+                label(for='date_end') Date end
+            div(class='col-md-9')
+                input(id='date_end' name='' value='' type='date' class='form-control'  autocomplete="off")
+        div(class='form-group')
+            div(class='col-md-12')
+                button(id="form-button" type='submit' class='btn btn-primary') Create project on execution
+        div.list-wrapper
+            table(id='projectssonexecution-list')
+block append scripts
+    script(src='/static/js/models/ProjectsOnExecution.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/ProjectsOnExecution.js')
